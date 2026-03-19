@@ -15,9 +15,15 @@ class IcloudImageLabeler < Formula
     python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
 
-    # Install with dependencies using pip directly
-    system libexec/"bin/pip", "install", buildpath
-    venv.link_scripts(libexec/"bin")
+    # Install pip into the venv, then install the package with deps
+    system libexec/"bin/python", "-m", "ensurepip"
+    system libexec/"bin/python", "-m", "pip", "install", buildpath
+
+    # Link the CLI script into the bin
+    (bin/"icloud-image-labeler").write_env_script(
+      libexec/"bin/icloud-image-labeler",
+      PATH: "#{libexec}/bin:$PATH",
+    )
   end
 
   test do
