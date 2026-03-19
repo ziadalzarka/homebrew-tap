@@ -7,22 +7,29 @@ class IcloudImageLabeler < Formula
 
   depends_on :macos
   depends_on "python@3.11"
-  depends_on "pipx"
   depends_on "ffmpeg"
 
   def install
-    # Use pipx to install into an isolated venv outside the Cellar,
-    # avoiding Homebrew's dylib relocation issues with Rust extensions
-    system "pipx", "install", buildpath.to_s,
-           "--python", Formula["python@3.11"].opt_bin/"python3.11",
-           "--pip-args=--no-cache-dir"
+    # Install into a venv outside the Cellar to avoid Homebrew's dylib
+    # relocation failing on Rust-compiled extensions (jiter, pydantic-core)
+    venv_dir = var/"lib/icloud-image-labeler"
+    system Formula["python@3.11"].opt_bin/"python3.11", "-m", "venv",
+           "--clear", venv_dir.to_s
+    system venv_dir/"bin/pip", "install", "--no-cache-dir", buildpath.to_s
 
-    # Symlink the pipx-installed binary into Homebrew's bin
-    bin.install_symlink Dir[HOMEBREW_PREFIX/"bin/icloud-image-labeler"]
+    (bin/"icloud-image-labeler").write_env_script(
+      venv_dir/"bin/icloud-image-labeler",
+      PATH: "#{venv_dir}/bin:$PATH",
+    )
   end
 
-  def post_install
-    ohai "Installed via pipx. To uninstall cleanly: pipx uninstall icloud-image-labeler"
+  def caveats
+    <<~EOS
+      The Python virtual environment is installed in:
+        #{var}/lib/icloud-image-labeler
+      This directory is not removed by `brew uninstall`. To fully remove, run:
+        rm -rf #{var}/lib/icloud-image-labeler
+    EOS
   end
 
   test do
