@@ -3,8 +3,8 @@ class IcloudImageLabeler < Formula
 
   desc "macOS CLI tool that auto-labels iCloud Photos using any OpenAI-compatible LLM"
   homepage "https://github.com/ziadalzarka/icloud-image-labeler"
-  url "https://github.com/ziadalzarka/icloud-image-labeler/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "47a8d5d0771286b1461f7b608666c00504733f4361e80f87d6e9a9acd5e45624"
+  url "https://github.com/ziadalzarka/icloud-image-labeler/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "555a5afe825ac242336ea50008088338db062ef8a1319b46a66fd6ec205fad8a"
   license "MIT"
 
   depends_on :macos
@@ -27,6 +27,6 @@ class IcloudImageLabeler < Formula
   end
 
   test do
-    assert_match "Auto-label iCloud Photos", shell_output("#{bin}/icloud-image-labeler --help")
+    assert_match "icloud-image-labeler 0.1.2", shell_output("#{bin}/icloud-image-labeler --version")
   end
 end
