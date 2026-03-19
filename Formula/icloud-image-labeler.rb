@@ -17,10 +17,11 @@ class IcloudImageLabeler < Formula
     venv = virtualenv_create(libexec, python3)
 
     # Install pip into the venv, then install the package with deps
-    # Build jiter from source to avoid Homebrew dylib relocation failure
-    # (pre-built wheel lacks headerpad for long Cellar paths)
+    # Build Rust extensions from source to avoid Homebrew dylib relocation failure
+    # (pre-built wheels lack headerpad for long Cellar paths)
     system libexec/"bin/python", "-m", "ensurepip"
-    system libexec/"bin/python", "-m", "pip", "install", "--no-binary", "jiter", buildpath
+    system libexec/"bin/python", "-m", "pip", "install",
+           "--no-binary", "jiter,pydantic-core", buildpath
 
     # Link the CLI script into the bin
     (bin/"icloud-image-labeler").write_env_script(
