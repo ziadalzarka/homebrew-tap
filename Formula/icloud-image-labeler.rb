@@ -10,14 +10,17 @@ class IcloudImageLabeler < Formula
   depends_on :macos
   depends_on "python@3.11"
   depends_on "ffmpeg"
+  depends_on "rust" => :build
 
   def install
     python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
 
     # Install pip into the venv, then install the package with deps
+    # Build jiter from source to avoid Homebrew dylib relocation failure
+    # (pre-built wheel lacks headerpad for long Cellar paths)
     system libexec/"bin/python", "-m", "ensurepip"
-    system libexec/"bin/python", "-m", "pip", "install", buildpath
+    system libexec/"bin/python", "-m", "pip", "install", "--no-binary", "jiter", buildpath
 
     # Link the CLI script into the bin
     (bin/"icloud-image-labeler").write_env_script(
