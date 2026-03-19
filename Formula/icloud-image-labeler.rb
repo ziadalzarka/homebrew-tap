@@ -12,8 +12,12 @@ class IcloudImageLabeler < Formula
   depends_on "ffmpeg"
 
   def install
-    venv = virtualenv_create(libexec, "python3.11")
-    venv.pip_install_and_link buildpath
+    python3 = "python3.11"
+    venv = virtualenv_create(libexec, python3)
+
+    # Install with dependencies using pip directly
+    system libexec/"bin/pip", "install", buildpath
+    venv.link_scripts(libexec/"bin")
   end
 
   test do
