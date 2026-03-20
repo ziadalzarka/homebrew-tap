@@ -566,10 +566,23 @@ class IcloudImageLabeler < Formula
   def install
     venv = virtualenv_create(libexec, "python3.11")
 
-    # Install all resources except objexplore normally
+    # pyobjc packages that need relaxed build flags for macOS 26
+    pyobjc_relaxed = ["pyobjc-framework-Quartz"]
+
+    # Install all resources except objexplore and problematic pyobjc packages
     resources.each do |r|
       next if r.name == "objexplore"
+      next if pyobjc_relaxed.include?(r.name)
       r.stage do
+        venv.pip_install Pathname.pwd
+      end
+    end
+
+    # pyobjc-framework-Quartz uses -Werror but CGWindowListCreateImageFromArray
+    # is obsoleted in macOS 15+ SDK, causing build failure. Relax the flag.
+    pyobjc_relaxed.each do |name|
+      resource(name).stage do
+        ENV.append "CFLAGS", "-Wno-error=deprecated-declarations"
         venv.pip_install Pathname.pwd
       end
     end
