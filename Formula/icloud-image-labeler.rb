@@ -38,7 +38,7 @@ class IcloudImageLabeler < Formula
   end
 
   resource "asgi-csrf" do
-    url "https://files.pythonhosted.org/packages/0a/59/2b54a274b9c9cbe1c0edbe5d324925fdd88a31567fb50dc2138e0160bdef/asgi_csrf-0.11.tar.gz"
+    url "https://files.pythonhosted.org/packages/0a/59/2b54a274b9c9cbe1c0edbe5d324925ffd88a31567fb50dc2138e0160bdef/asgi_csrf-0.11.tar.gz"
     sha256 "e19a4f87d5af3feabde04c57921ee15510c3bfb0565627df9cb20bcb303282c2"
   end
 
@@ -188,7 +188,7 @@ class IcloudImageLabeler < Formula
   end
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c057e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
+    url "https://files.pythonhosted.org/packages/9e/38/bd5b78a920a64d708fe6bc8e0a2c075e1389d53bef8413725c63ba041535/mako-1.3.10.tar.gz"
     sha256 "99579a6f39583fa7e5630a28c3c1f440e4e97a414b80372649c0ce338da2ea28"
   end
 
@@ -403,7 +403,7 @@ class IcloudImageLabeler < Formula
   end
 
   resource "pyobjc-framework-UniformTypeIdentifiers" do
-    url "https://files.pythonhosted.org/packages/65/b8/dd9d2a94509a6c16d965a7b8155e78edf520056313a80f0cd352413f0d0b/pyobjc_framework_uniformtypeidentifiers-12.1.tar.gz"
+    url "https://files.pythonhosted.org/packages/65/b8/dd9d2a94509a6c16d965a7b0155e78edf520056313a80f0cd352413f0d0b/pyobjc_framework_uniformtypeidentifiers-12.1.tar.gz"
     sha256 "64510a6df78336579e9c39b873cfcd03371c4b4be2cec8af75a8a3d07dff607d"
   end
 
