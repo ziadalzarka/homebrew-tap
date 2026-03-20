@@ -578,7 +578,7 @@ class IcloudImageLabeler < Formula
     # pyobjc-framework-Quartz uses -Werror but CGWindowListCreateImageFromArray
     # is obsoleted in macOS 15+. Patch it out before building.
     resource("pyobjc-framework-Quartz").stage do
-      inreplace "pyobjc_setup.py", 'cflags.append("-Werror")', ""
+      inreplace "pyobjc_setup.py", 'cflags.append("-Werror")', 'pass'  
       venv.pip_install Pathname.pwd
     end
 
