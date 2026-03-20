@@ -17,7 +17,9 @@ class IcloudImageLabeler < Formula
   depends_on "rust" => :build
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.11")
+    system libexec/"bin/pip", "install", buildpath
+    venv.pip_install_and_link buildpath
   end
 
   test do
