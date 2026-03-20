@@ -11,6 +11,10 @@ class IcloudImageLabeler < Formula
   depends_on "python@3.11"
   depends_on "ffmpeg"
   depends_on "rust" => :build
+  depends_on "jpeg-turbo"
+  depends_on "libheif"
+  depends_on "libtiff"
+  depends_on "little-cms2"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/41/c3/534eac40372d8ee36ef40df62ec129bee4fdb5ad9706e58a29be53b2c970/aiofiles-25.1.0.tar.gz"
