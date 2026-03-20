@@ -560,7 +560,25 @@ class IcloudImageLabeler < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.11")
+
+    # Install all resources except objexplore normally
+    resources.each do |r|
+      next if r.name == "objexplore"
+      r.stage do
+        venv.pip_install Pathname.pwd
+      end
+    end
+
+    # objexplore imports rich at build time (in get_requires_for_build_wheel),
+    # so disable build isolation to let it find rich already in the virtualenv
+    resource("objexplore").stage do
+      system libexec/"bin/pip", "install", "--verbose", "--no-deps",
+             "--no-build-isolation", "--no-binary", ":all:", "."
+    end
+
+    # Install the main package
+    venv.pip_install_and_link buildpath
   end
 
   test do
