@@ -222,6 +222,16 @@ class IcloudImageLabeler < Formula
     sha256 "f638ddf8a1a0d134181275fb5d58b086ead7c6a72429ad725c67503f13ba30bd"
   end
 
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
+    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
+  end
+
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
+    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
+  end
+
   resource "objexplore" do
     url "https://files.pythonhosted.org/packages/3b/a4/a3d92448b0319782a8578fcba0a00cc3e3335224fcf753d48f00ae948abf/objexplore-1.6.3.tar.gz"
     sha256 "8298ea17d66084b3ad6e04239da19d7051f2a80669b5c0118f7fb9b854ba6370"
@@ -317,10 +327,6 @@ class IcloudImageLabeler < Formula
     sha256 "08daa51ea16ad373ffd5e7606252cc32f07bc72b28284b6bc9c6df804816476e"
   end
 
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b0/77/a5b8c569bf593b0140bde72ea885a803b82086995367bf2037de0159d924/pygments-2.19.2.tar.gz"
-    sha256 "636cb2477cec7f8952536970bc533bc43743542f70392ae026374600add5b887"
-  end
 
   resource "pyobjc-core" do
     url "https://files.pythonhosted.org/packages/b8/b6/d5612eb40be4fd5ef88c259339e6313f46ba67577a95d86c3470b951fce0/pyobjc_core-12.1.tar.gz"
@@ -432,10 +438,6 @@ class IcloudImageLabeler < Formula
     sha256 "dbba0bac56e100853db0ea71b82b4dfd5fe2bf6d3754a8893c3af500cec7d7cf"
   end
 
-  resource "rich" do
-    url "https://files.pythonhosted.org/packages/ab/3a/0316b28d0761c6734d6bc14e770d85506c986c85ffb239e688eeaab2c2bc/rich-13.9.4.tar.gz"
-    sha256 "439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"
-  end
 
   resource "rich-theme-manager" do
     url "https://files.pythonhosted.org/packages/33/27/8139d912017d8d885b44143235959ea7db679ad4bde8dd4e6d99b3e35517/rich-theme-manager-0.11.0.tar.gz"
