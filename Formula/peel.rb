@@ -1,25 +1,25 @@
 class Peel < Formula
   desc "Terminal diff reviewer that stages what you just reviewed"
   homepage "https://github.com/ziadalzarka/peel"
-  version "0.23.0"
+  version "0.23.1"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.0/peel_v0.23.0_darwin_arm64.tar.gz"
-      sha256 "c665459b757f2b7affcd2ab9b7843a26e61cf84670fe327fda67d175d91705fc"
+      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.1/peel_v0.23.1_darwin_arm64.tar.gz"
+      sha256 "d5cb00d7747a6a9a34461e369c51122ffa3472b4c044e4aa620cad4309832217"
     else
-      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.0/peel_v0.23.0_darwin_amd64.tar.gz"
-      sha256 "bb56813c24e7ee7fcdc480efcce715c37aa476c623b74ecd3bab5915e11ca076"
+      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.1/peel_v0.23.1_darwin_amd64.tar.gz"
+      sha256 "9e44e13d8c3ae16e4885106a17d76fad7653f74bdffb804acf1204da19cd7261"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.0/peel_v0.23.0_linux_arm64.tar.gz"
-      sha256 "c1cff577a5ebbeb7b9185afb13cf6799e9842013c3b0945ecf59ebfa81b9e70e"
+      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.1/peel_v0.23.1_linux_arm64.tar.gz"
+      sha256 "21086c9101d12f71c5ea2baee68fc8e56587af0c1a49d9944ea07cad29bc07d7"
     else
-      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.0/peel_v0.23.0_linux_amd64.tar.gz"
-      sha256 "2cc627617b6a8aaf722c8bde7f796fc28b501ab638b12c87d002aac1d9da0f70"
+      url "https://github.com/ziadalzarka/peel/releases/download/v0.23.1/peel_v0.23.1_linux_amd64.tar.gz"
+      sha256 "87c3b344062a998610c1d90606bd1d38f583fda8af874eb5bd732e64d59012b5"
     end
   end
 
