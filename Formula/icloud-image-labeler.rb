@@ -1,8 +1,8 @@
 class IcloudImageLabeler < Formula
   desc "macOS CLI tool that auto-labels iCloud Photos using any OpenAI-compatible LLM"
   homepage "https://github.com/ziadalzarka/icloud-image-labeler"
-  url "https://github.com/ziadalzarka/icloud-image-labeler/archive/refs/tags/v0.8.2.tar.gz"
-  sha256 "6e8cfb7bc0d8e9e0c453ce1c0a0fe2d1ce28ca9200ec5689b550c972bb522dca"
+  url "https://github.com/ziadalzarka/icloud-image-labeler/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "64fe9561bc9ed7e5fda1c0cbe7e38bae0f5d85306edefb1d258dc768c70e059f"
   license "MIT"
 
   depends_on :macos
